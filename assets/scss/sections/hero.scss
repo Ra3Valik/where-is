@@ -1,0 +1,8 @@
+@use "@scss/core/variables" as *;
+@use "@scss/core/mixins" as *;
+
+.hero-block {
+  background-color: $main-bg-color;
+  color: $main-text-color;
+  padding: 4rem;
+}

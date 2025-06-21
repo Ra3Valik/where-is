@@ -1,0 +1,17 @@
+{
+  "name": "where-is",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=21.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "author": "Ra3Valik",
+  "dependencies": {
+    "saas": "^1.0.0",
+    "sass-embedded": "^1.89.2",
+    "vite": "^6.3.5"
+  }
+}

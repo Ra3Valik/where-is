@@ -1,0 +1,13 @@
+@use './variables' as *;
+
+body {
+  font-family: $font-primary;
+  line-height: 1.6;
+  color: $main-text-color;
+}
+
+h1, h2, h3 {
+  font-family: $font-heading;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}

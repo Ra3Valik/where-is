@@ -1,0 +1,22 @@
+@use 'core/fonts';
+@use 'core/variables' as *;
+@use 'core/mixins' as *;
+
+body,
+.wp-admin,
+.editor-post-title__input,
+.block-editor-block-list__block,
+.acf-input,
+.acf-label,
+.edit-post-visual-editor {
+  font-family: $font-primary !important;
+}
+
+h1, h2, h3 {
+  font-family: $font-heading !important;
+}
+
+.wp-core-ui .button,
+.wp-core-ui .button-primary {
+  font-family: $font-primary !important;
+}
