@@ -1,0 +1,16 @@
+{
+    "name": "user/where-is",
+    "autoload": {
+        "psr-4": {
+            "User\\WhereIs\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ra3Valik"
+        }
+    ],
+    "require": {
+        "htmlburger/carbon-fields": "^3.6"
+    }
+}

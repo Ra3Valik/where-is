@@ -13,6 +13,7 @@ export default {
                 admin: resolve(__dirname, 'assets/js/admin.js'),
                 style: resolve(__dirname, 'assets/scss/main.scss'),
                 adminStyle: resolve(__dirname, 'assets/scss/admin.scss'),
+                branding: resolve(__dirname, 'assets/scss/branding.scss'),
             },
             output: {
                 entryFileNames: '[name].js',

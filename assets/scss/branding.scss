@@ -1,0 +1,51 @@
+.login {
+  h1 {
+    a {
+      width: 90%;
+      height: 150px;
+      background-size: contain;
+      background-position: center;
+      background-image: var(--theme-logo-url);
+    }
+  }
+}
+
+#wp-admin-bar-theme-logo {
+  a {
+    display: flex !important;
+    align-items: center;
+  }
+
+  img {
+    width: 20px;
+    height: auto;
+    margin-top: 0;
+  }
+}
+
+#footer-thankyou {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #666;
+
+  a {
+    display: flex;
+    align-items: center;
+    height: 24px;
+    padding: 0;
+    margin: 0;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    svg {
+      height: 100%;
+      width: auto;
+      display: block;
+    }
+  }
+}
