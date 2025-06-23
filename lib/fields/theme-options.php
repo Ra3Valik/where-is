@@ -10,11 +10,16 @@ function crb_attach_theme_options()
 		->add_tab( __( 'Логотип', THEME_TD ), [
 			Field::make( 'image', 'theme_logo', __( 'Логотип сайта', THEME_TD ) )
 				->set_value_type( 'url' )
-				->set_width( 50 )
+				->set_width( 33 )
+				->set_required(),
+
+			Field::make( 'image', 'theme_logo_tablet', __( 'Логотип сайта на планшетах', THEME_TD ) )
+				->set_value_type( 'url' )
+				->set_width( 33 )
 				->set_required(),
 
 			Field::make( 'image', 'theme_icon', __( 'Иконка сайта', THEME_TD ) )
-				->set_width( 50 )
+				->set_width( 33 )
 				->set_value_type( 'url' )
 				->set_required(),
 		] )

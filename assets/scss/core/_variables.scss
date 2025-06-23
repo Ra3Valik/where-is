@@ -1,6 +1,29 @@
-$main-bg-color: #0066CC;
-$main-text-color: #FFCC00;
-$font-primary: 'Inter', sans-serif;
-$font-heading: 'Bebas Neue', cursive;
-$font-primary: 'Inter', sans-serif;
-$font-heading: 'Bebas Neue', cursive;
+$font-heading: 'Tektur';
+$font-primary: 'Mulish', sans-serif;
+
+
+$main-bg-color: #f4f4f4;         // Очень светлый фон, близкий к белому (для мягкой контрастности)
+$main-text-color: #5F79D4;       // Яркий сине-голубой — для основного текста и заголовков
+$color-white: #ffffff;           // Без изменений
+$color-black: #000000;           // Без изменений
+$color-dark: #3A3A4A;            // Глубокий серо-фиолетовый, хорошо контрастирует на светлом фоне
+$color-light: #F0F4F8;           // Светлый фон элементов/секций
+$color-gray: #9CA3AF;            // Мягкий серый для второстепенного текста
+$color-accent: #B388EB;          // Лавандово-фиолетовый (для кнопок, ссылок, акцентов)
+$color-map-mint: #6FE7DD;        // Бирюзовый (цвет карты)
+$color-pin: #C084FC;             // Цвет пина/вопроса (для hover-эффектов, иконок и пр.)
+
+
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-md: 16px;
+$font-size-lg: 20px;
+$font-size-xl: 28px;
+$font-size-xxl: 40px;
+
+
+$border-radius-min: 4px;
+
+
+$container-width: 1920px;
+$gutter: 20px;

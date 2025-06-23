@@ -1,0 +1,21 @@
+@use "@scss/core/variables" as *;
+
+@mixin container($max-width: 1920px) {
+  width: 100%;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+@mixin media($size) {
+  @if $size == mobile {
+    @media (max-width: 767px) { @content; }
+  } @else if $size == tablet {
+    @media (max-width: 1167px) { @content; }
+  } @else if $size == desktop {
+    @media (min-width: 1168px) { @content; }
+  }
+}

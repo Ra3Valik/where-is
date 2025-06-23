@@ -26,6 +26,7 @@ function load_theme_dependencies()
 		require_once( 'lib/ajax.php' );           	 			# Ajax endpoints
 		require_once( 'lib/assets.php' );                    	# Theme styles and scripts
 		require_once( 'lib/branding.php' );                    	# Brand wp screens and bars
+		require_once( 'lib/menus.php' );           				# Menu options
 	} );
 }
 

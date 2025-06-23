@@ -1,0 +1,214 @@
+@use "@scss/core/variables" as *;
+@use "@scss/core/mixins" as *;
+
+.site-header {
+  background-color: $main-bg-color;
+  color: $main-text-color;
+  font-family: $font-primary;
+  padding: 20px 0;
+  position: relative;
+
+  .container {
+    @include container();
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $gutter;
+  }
+
+  .logo img {
+    height: 80px;
+    max-height: 100px;
+    border-radius: $border-radius-min;
+    width: auto;
+    display: block;
+  }
+
+  .logo {
+    display: block;
+
+    &.logo-tablet {
+      display: none;
+    }
+  }
+
+  @include media(tablet) {
+    .logo-desktop {
+      display: none;
+    }
+
+    .logo-tablet {
+      display: block !important;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+
+      img {
+        height: 100px;
+        max-height: 100px;
+        width: auto;
+      }
+    }
+
+    .site-header .container {
+      justify-content: space-between;
+    }
+  }
+
+  .burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 28px;
+    height: 24px;
+    cursor: pointer;
+    padding: 0;
+
+    span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background: $main-text-color;
+      border-radius: calc($border-radius-min / 2);
+      transition: all 0.3s ease;
+    }
+
+    @include media(tablet) {
+      display: flex;
+    }
+  }
+
+
+  .main-nav {
+    flex-grow: 1;
+
+    ul.menu {
+      display: flex;
+      justify-content: center;
+      gap: calc($gutter * 2);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        a {
+          font-family: $font-primary;
+          font-size: calc($font-size-md + 2px);
+          color: $main-text-color;
+          text-decoration: none;
+          padding: 5px 10px;
+          border-radius: $border-radius-min;
+          transition: background 0.2s;
+
+          &:hover {
+            background: rgba($main-text-color, 0.1);
+          }
+        }
+      }
+
+      @include media(tablet) {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        flex-direction: column;
+        background: $main-bg-color;
+        width: 100%;
+        padding: 15px 20px;
+        z-index: 10;
+
+        &.active {
+          display: flex;
+        }
+      }
+
+      li.menu-cta {
+        display: none;
+
+        @include media(tablet) {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin-top: 20px;
+          padding: 0 20px;
+
+          .btn {
+            width: 100%;
+            text-align: center;
+          }
+
+          .btn-cabinet {
+            border: 1px solid $main-text-color;
+            color: $main-text-color;
+            background: transparent;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+
+            &:hover {
+              background: rgba($main-text-color, 0.1);
+            }
+          }
+
+          .btn-secondary {
+            background: $main-text-color;
+            color: $color-white;
+            font-weight: bold;
+
+            &:hover {
+              opacity: 0.9;
+            }
+          }
+
+          .btn-accent {
+            background: $color-accent;
+            color: $color-white;
+
+            &:hover {
+              opacity: 0.9;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .header-cta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .btn-secondary {
+      background-color: $main-text-color;
+      color: $color-white;
+      padding: 10px 20px;
+      border-radius: $border-radius-min;
+      font-weight: bold;
+      font-size: $font-size-md;
+
+      &:hover {
+        opacity: 0.85;
+      }
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid $main-text-color;
+      color: $main-text-color;
+      padding: 8px 18px;
+      border-radius: $border-radius-min;
+      font-weight: bold;
+      font-size: $font-size-md;
+
+      &:hover {
+        background: rgba($main-text-color, 0.1);
+      }
+    }
+
+    @include media(tablet) {
+      display: none;
+    }
+  }
+}

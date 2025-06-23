@@ -44,7 +44,7 @@ function convert_url_to_path( $url )
 
 function send_telegram_message( $chat_id, $text )
 {
-	$token = carbon_get_theme_option( 'tg_bot_token' );
+	$token = TELEGRAM_BOT_TOKEN;
 	if ( !$token || !$chat_id || !$text ) return false;
 
 	$url = "https://api.telegram.org/bot{$token}/sendMessage";

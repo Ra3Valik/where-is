@@ -24,3 +24,39 @@
   font-style: normal;
   font-display: swap;
 }
+
+// Mulish Regular
+@font-face {
+  font-family: 'Inter';
+  src: url('/wp-content/themes/where-is/assets/fonts/mulish/mulish-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Mulish Bold
+@font-face {
+  font-family: 'Inter';
+  src: url('/wp-content/themes/where-is/assets/fonts/mulish/mulish-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Rubik Mono One
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/wp-content/themes/where-is/assets/fonts/rubik-mono-one/rubik-mono-one-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Tektur
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('/wp-content/themes/where-is/assets/fonts/tektur/tektur-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
