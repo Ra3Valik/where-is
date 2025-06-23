@@ -134,42 +134,6 @@
           gap: 10px;
           margin-top: 20px;
           padding: 0 20px;
-
-          .btn {
-            width: 100%;
-            text-align: center;
-          }
-
-          .btn-cabinet {
-            border: 1px solid $main-text-color;
-            color: $main-text-color;
-            background: transparent;
-            font-weight: bold;
-            letter-spacing: 0.5px;
-
-            &:hover {
-              background: rgba($main-text-color, 0.1);
-            }
-          }
-
-          .btn-secondary {
-            background: $main-text-color;
-            color: $color-white;
-            font-weight: bold;
-
-            &:hover {
-              opacity: 0.9;
-            }
-          }
-
-          .btn-accent {
-            background: $color-accent;
-            color: $color-white;
-
-            &:hover {
-              opacity: 0.9;
-            }
-          }
         }
       }
     }
@@ -179,33 +143,6 @@
     display: flex;
     align-items: center;
     gap: 12px;
-
-    .btn-secondary {
-      background-color: $main-text-color;
-      color: $color-white;
-      padding: 10px 20px;
-      border-radius: $border-radius-min;
-      font-weight: bold;
-      font-size: $font-size-md;
-
-      &:hover {
-        opacity: 0.85;
-      }
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid $main-text-color;
-      color: $main-text-color;
-      padding: 8px 18px;
-      border-radius: $border-radius-min;
-      font-weight: bold;
-      font-size: $font-size-md;
-
-      &:hover {
-        background: rgba($main-text-color, 0.1);
-      }
-    }
 
     @include media(tablet) {
       display: none;

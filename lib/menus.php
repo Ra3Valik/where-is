@@ -14,12 +14,12 @@ function add_cta_buttons_to_menu( $items, $args )
 			$user_url = home_url( '/user/' . $current_user->user_nicename );
 
 			$items .= '<li class="menu-cta menu-cta-logged-in">
-				<a href="' . esc_url( $user_url ) . '" class="btn btn-outline btn-mobile btn-cabinet">Кабинет</a>
-				<a href="' . esc_url( wp_logout_url( home_url() ) ) . '" class="btn btn-secondary btn-mobile">Выход</a>
+				<a href="' . esc_url( $user_url ) . '" class="btn btn-outline btn-mobile btn-cabinet">' . __( 'Кабинет', THEME_TD ) . '</a>
+				<a href="' . esc_url( wp_logout_url( home_url() ) ) . '" class="btn btn-secondary btn-mobile">' . __( 'Выход', THEME_TD ) . '</a>
 			</li>';
 		} else {
 			$items .= '<li class="menu-cta menu-cta-logged-out">
-				<a href="https://t.me/' . TELEGRAM_BOT_TOKEN . '" class="btn btn-accent btn-mobile">Вход через Telegram</a>
+				<a href="https://t.me/' . TELEGRAM_BOT_TOKEN . '" class="btn btn-accent btn-mobile">' . __( 'Вход через Telegram', THEME_TD ) . '</a>
 			</li>';
 		}
 	}

@@ -10,11 +10,11 @@
 <header class="site-header">
     <div class="container">
         <a href="<?= home_url() ?>" class="logo logo-desktop">
-            <img src="<?= THEME_LOGO_URL ?>" alt="Логотип">
+            <img src="<?= THEME_LOGO_URL ?>" alt="<?= __( 'Логотип', THEME_TD ) ?>">
         </a>
 
         <a href="<?= home_url() ?>" class="logo logo-tablet">
-            <img src="<?= THEME_LOGO_TABLET_URL ?>" alt="Логотип (tablet)">
+            <img src="<?= THEME_LOGO_TABLET_URL ?>" alt="<?= __( 'Логотип', THEME_TD ) ?> (tablet)">
         </a>
 
         <?php if ( has_nav_menu( 'main_menu' ) ) : ?>
@@ -37,10 +37,10 @@
 				$current_user = wp_get_current_user();
 				$user_url = home_url( '/user/' . $current_user->user_nicename );
 				?>
-                <a href="<?php echo esc_url( $user_url ); ?>" class="btn btn-outline btn-cabinet">Кабинет</a>
-                <a href="<?php echo esc_url( wp_logout_url( home_url() ) ); ?>" class="btn btn-secondary">Выход</a>
+                <a href="<?php echo esc_url( $user_url ); ?>" class="btn btn-outline btn-cabinet"><?= __( 'Кабинет', THEME_TD ) ?></a>
+                <a href="<?php echo esc_url( wp_logout_url( home_url() ) ); ?>" class="btn btn-secondary"><?= __( 'Выход', THEME_TD ) ?></a>
 			<?php else : ?>
-                <a href="https://t.me/<?= TELEGRAM_BOT_TOKEN ?>" class="btn btn-secondary">Вход через Telegram</a>
+                <a href="https://t.me/<?= TELEGRAM_BOT_TOKEN ?>" class="btn btn-secondary"><?= __( 'Вход через Telegram', THEME_TD ) ?></a>
 			<?php endif; ?>
         </div>
 
