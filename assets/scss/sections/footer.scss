@@ -1,0 +1,99 @@
+@use "@scss/core/variables" as *;
+@use "@scss/core/mixins" as *;
+
+.site-footer {
+  background-color: $main-bg-color;
+  font-family: $font-primary;
+  color: $color-dark;
+  font-size: $font-size-sm;
+  border-top: 1px solid rgba($color-dark, 0.05);
+  margin-top: 60px;
+
+  .footer-top {
+    padding: 40px 0;
+
+    .container {
+      @include container();
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo img {
+      max-height: 60px;
+      width: auto;
+      display: block;
+      filter: grayscale(1) opacity(0.7);
+      transition: filter 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        filter: none;
+      }
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+
+      .footer-link {
+        color: $color-dark;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $main-text-color;
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    background-color: $color-light;
+    padding: 16px 0;
+    font-size: $font-size-xs;
+    color: $color-gray;
+
+    .container {
+      @include container();
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .dev-credit {
+      a {
+        color: $color-accent;
+        text-decoration: none;
+        font-weight: 500;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  @include media(tablet) {
+    .footer-top .container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-nav {
+      justify-content: center;
+    }
+
+    .footer-bottom .container {
+      flex-direction: column;
+    }
+  }
+}
