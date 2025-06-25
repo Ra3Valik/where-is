@@ -43,3 +43,18 @@ define( 'HERO_SECTIONS_FIELDS', [
 			]
 		] ),
 ] );
+
+define( 'HOW_IT_WORKS_FIELDS', [
+	Field::make('text', 'how_it_works_title', __( 'Заголовок', THEME_TD ) )
+		->set_required(),
+	Field::make('textarea', 'how_it_works_subtitle', __( 'Подзаголовок', THEME_TD ) ),
+	Field::make('complex', 'how_it_works_steps', __( 'Шаги "Как это работает"', THEME_TD ) )
+		->set_required()
+		->set_layout('tabbed-horizontal')
+		->add_fields([
+			Field::make('text', 'title', __( 'Заголовок шага', THEME_TD ) ),
+			Field::make('file', 'icon', __( 'SVG иконка', THEME_TD ) )
+				->set_type('image')
+				->set_value_type('url'),
+		]),
+] );

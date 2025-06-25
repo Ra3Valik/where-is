@@ -8,5 +8,6 @@ function crb_attach_home_page_fields()
 {
 	Container::make( 'post_meta', __( 'Настройки темы', THEME_TD ) )
 		->where( 'post_template', '=', 'templates/home-page-template.php' )
-		->add_tab( __( 'Главная секция', THEME_TD ), HERO_SECTIONS_FIELDS );
+		->add_tab( __( 'Главная', THEME_TD ), HERO_SECTIONS_FIELDS )
+		->add_tab( __( 'Как это работает', THEME_TD ), HOW_IT_WORKS_FIELDS );
 }
