@@ -18,6 +18,7 @@ function load_theme_dependencies()
 	\Carbon_Fields\Carbon_Fields::boot();					# Init Carbon Fields
 	require_once( 'lib/fields/reused-fields.php' );			# Reused Fields
 	require_once( 'lib/fields/theme-options.php' );			# Theme Options Fields
+	require_once( 'lib/fields/global-sections.php' );		# Theme Options Fields
 	require_once( 'lib/fields/template-fields.php' );		# Templates Fields
 	require_once( 'lib/fields/user-meta.php' );				# User Fields
 	require_once( 'lib/fields/game-options.php' );			# Game Options Fields

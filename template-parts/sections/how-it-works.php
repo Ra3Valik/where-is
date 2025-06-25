@@ -1,7 +1,7 @@
 <?php
-$title = carbon_get_the_post_meta( 'how_it_works_title' );
-$subtitle = carbon_get_the_post_meta( 'how_it_works_subtitle' );
-$steps = carbon_get_the_post_meta( 'how_it_works_steps' );
+$title = carbon_get_theme_option( 'how_it_works_title' );
+$subtitle = carbon_get_theme_option( 'how_it_works_subtitle' );
+$steps = carbon_get_theme_option( 'how_it_works_steps' );
 if ( !empty( $steps ) && !empty( $title ) ) :
 ?>
 <section class='how-it-works'>
