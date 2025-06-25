@@ -1,0 +1,52 @@
+@use "@scss/core/variables" as *;
+@use "@scss/core/mixins" as *;
+
+.tg-register {
+  background-color: $main-text-color; // Яркий сине-голубой фон
+  padding: 80px 0;
+  color: $color-white;
+  text-align: center;
+
+  &__container {
+    @include container(800px);
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: $font-size-xxl;
+    color: $color-white;
+    margin-bottom: 16px;
+
+    @include media(mobile) {
+      font-size: 28px;
+    }
+  }
+
+  &__text {
+    font-family: $font-primary;
+    font-size: $font-size-md;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+
+    @include media(mobile) {
+      font-size: $font-size-sm;
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    background-color: $color-accent;
+    color: $color-white;
+    font-family: $font-primary;
+    font-weight: 600;
+    font-size: $font-size-md;
+    padding: 14px 28px;
+    border-radius: $border-radius-min;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $color-pin;
+    }
+  }
+}

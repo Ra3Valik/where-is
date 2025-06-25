@@ -42,6 +42,13 @@ function convert_url_to_path( $url )
 	return $url;
 }
 
+/**
+ * Send message via telegram
+ *
+ * @param $chat_id
+ * @param $text
+ * @return bool
+ */
 function send_telegram_message( $chat_id, $text )
 {
 	$token = TELEGRAM_BOT_TOKEN;
@@ -57,4 +64,33 @@ function send_telegram_message( $chat_id, $text )
 	] );
 
 	return !is_wp_error( $response );
+}
+
+
+/**
+ * Check telegram hash for true users
+ *
+ * @param $data
+ * @return bool
+ */
+function telegram_auth_is_valid( $data )
+{
+	if ( !isset( $data['hash'] ) ) return false;
+
+	$check_hash = $data['hash'];
+	unset( $data['hash'] );
+
+	$token = TELEGRAM_BOT_TOKEN;
+	$secret_key = hash( 'sha256', $token, true );
+
+	ksort( $data );
+	$data_check_string = '';
+	foreach ( $data as $key => $value ) {
+		$data_check_string .= $key . '=' . $value . "\n";
+	}
+	$data_check_string = rtrim( $data_check_string );
+
+	$hash = hash_hmac( 'sha256', $data_check_string, $secret_key );
+
+	return hash_equals( $hash, $check_hash );
 }

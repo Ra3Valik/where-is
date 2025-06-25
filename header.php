@@ -40,7 +40,7 @@
                 <a href="<?php echo esc_url( $user_url ); ?>" class="btn btn-outline btn-cabinet"><?= __( 'Кабинет', THEME_TD ) ?></a>
                 <a href="<?php echo esc_url( wp_logout_url( home_url() ) ); ?>" class="btn btn-secondary"><?= __( 'Выход', THEME_TD ) ?></a>
 			<?php else : ?>
-                <a href="https://t.me/<?= TELEGRAM_BOT_TOKEN ?>" class="btn btn-secondary"><?= __( 'Вход через Telegram', THEME_TD ) ?></a>
+                <a href="https://t.me/<?= TELEGRAM_BOT_TOKEN ?>" class="tg-auth-btn btn btn-secondary"><?= __( 'Вход через Telegram', THEME_TD ) ?></a>
 			<?php endif; ?>
         </div>
 

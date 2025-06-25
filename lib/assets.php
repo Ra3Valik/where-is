@@ -3,6 +3,12 @@
 add_action( 'wp_enqueue_scripts', function () {
 	wp_enqueue_style( THEME_TD . '-style', get_template_directory_uri() . '/dist/style.css', [], null );
 	wp_enqueue_script( THEME_TD . '-main', get_template_directory_uri() . '/dist/main.js', [], null, true );
+
+	wp_localize_script( THEME_TD . '-main', 'TGAuthSettings', [
+		'bot_username' => TELEGRAM_BOT_USERNAME,
+		'bot_id' => TELEGRAM_BOT_ID,
+		'callback_url' => home_url( 'tg-auth' ),
+	] );
 } );
 
 add_action( 'admin_enqueue_scripts', function () {

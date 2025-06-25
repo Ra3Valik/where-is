@@ -24,7 +24,15 @@ function crb_attach_theme_options()
 				->set_required(),
 		] )
 		->add_tab( __( 'Настройки Telegram', THEME_TD ), [
-			Field::make( 'text', 'tg_bot_token', __( 'Telegram Bot Token', THEME_TD ) )
+			Field::make( 'text', 'tg_bot_username', __( 'Тэг Телеграм Бота', THEME_TD ) )
+				->set_help_text( __( 'Без "@"', THEME_TD ) )
+				->set_required(),
+
+			Field::make( 'text', 'tg_bot_id', __( 'ID Телеграм Бота', THEME_TD ) )
+				->set_help_text( __( 'Можно узнать в боте @userinfobot переслав ему любое сообщение вашего бота', THEME_TD ) )
+				->set_required(),
+
+			Field::make( 'text', 'tg_bot_token', __( 'Токен Телеграм Бота', THEME_TD ) )
 				->set_required(),
 		] );
 }
