@@ -2,7 +2,7 @@
 @use "@scss/core/mixins" as *;
 
 .tg-register {
-  background-color: $main-text-color; // Яркий сине-голубой фон
+  background-color: $main-text-color;
   padding: 80px 0;
   color: $color-white;
   text-align: center;
@@ -33,20 +33,24 @@
     }
   }
 
-  &__button {
+  &__button--disabled {
     display: inline-block;
-    background-color: $color-accent;
-    color: $color-white;
     font-family: $font-primary;
     font-weight: 600;
     font-size: $font-size-md;
-    padding: 14px 28px;
+    padding: 12px 24px;
     border-radius: $border-radius-min;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+    text-align: center;
 
-    &:hover {
-      background-color: $color-pin;
+    background-color: rgba($color-white, 0.2);
+    color: rgba($color-white, 0.7);
+    cursor: default;
+    pointer-events: none;
+
+    @include media(tablet) {
+      font-size: $font-size-sm;
+      padding: 10px 20px;
     }
   }
 }
+

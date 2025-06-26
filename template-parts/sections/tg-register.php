@@ -44,22 +44,23 @@ $joined = $game_id && in_array( $current_user->ID, carbon_get_post_meta( $game_i
             </p>
 
 			<?php if ( !$is_logged_in || !$tg_id ): ?>
-                <a href="https://t.me/<?= TELEGRAM_BOT_TOKEN ?>" class="tg-register__button" target="_blank">
+                <a href="https://t.me/<?= TELEGRAM_BOT_TOKEN ?>" class="tg-auth-btn btn btn-accent" target="_blank">
 					<?= esc_html( $btn_guest ) ?>
                 </a>
 			<?php elseif ( $next_game && !$joined ): ?>
                 <form action="<?= esc_url( admin_url( 'admin-post.php' ) ) ?>" method="post">
                     <input type="hidden" name="action" value="join_game">
                     <input type="hidden" name="game_id" value="<?= esc_attr( $game_id ) ?>">
-                    <button type="submit" class="tg-register__button"><?= esc_html( $btn_join ) ?></button>
+                    <button type="submit" class="btn btn-accent"><?= esc_html( $btn_join ) ?></button>
                 </form>
 			<?php elseif ( $next_game && $joined ): ?>
-                <div class="tg-register__button tg-register__button--disabled"><?= esc_html( $btn_joined ) ?></div>
+                <div class="btn tg-register__button--disabled"><?= esc_html( $btn_joined ) ?></div>
 			<?php else: ?>
-                <a href="https://t.me/<?= TELEGRAM_BOT_TOKEN ?>" class="tg-auth-btn tg-register__button" target="_blank">
+                <a href="https://t.me/<?= TELEGRAM_BOT_TOKEN ?>" class="tg-auth-btn btn btn-accent" target="_blank">
 					<?= esc_html( $btn_notify ) ?>
                 </a>
 			<?php endif; ?>
+
         </div>
     </div>
 </section>
