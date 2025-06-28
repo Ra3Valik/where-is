@@ -15,6 +15,8 @@ get_header(); ?>
 <!--	--><?php //get_template_part( 'template-parts/sections/prize' ); ?>
 
 	<?php get_template_part( 'template-parts/sections/active-game' ); ?>
+
+	<?php get_template_part( 'template-parts/sections/faq' ); ?>
 </main>
 
 <?php get_footer(); ?>

@@ -1,7 +1,10 @@
 <?php
-$title = carbon_get_theme_option( 'how_it_works_title' );
-$subtitle = carbon_get_theme_option( 'how_it_works_subtitle' );
-$steps = carbon_get_theme_option( 'how_it_works_steps' );
+$use_global = carbon_get_the_post_meta( 'use_how_it_works_global_settings' );
+$func = $use_global ? 'carbon_get_theme_option' : 'carbon_get_the_post_meta';
+
+$title = $func( 'how_it_works_title' );
+$subtitle = $func( 'how_it_works_subtitle' );
+$steps = $func( 'how_it_works_steps' );
 if ( !empty( $steps ) && !empty( $title ) ) :
 	?>
     <section class='how-it-works'>

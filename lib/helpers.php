@@ -94,3 +94,76 @@ function telegram_auth_is_valid( $data )
 
 	return hash_equals( $hash, $check_hash );
 }
+
+/**
+ * Apply conditional logic to fields array.
+ *
+ * @param array $fields
+ * @param string $field_id
+ * @param mixed $value
+ *
+ * @return array
+ */
+function apply_conditional_logic_to_fields( array $fields, string $field_id, $value ) : array
+{
+	$cloned_fields = [];
+
+	foreach ( $fields as $field ) {
+		$cloned_field = clone $field; // IMPORTANT! Clone, because another way broke fields
+		$cloned_field->set_conditional_logic( [
+			[
+				'field' => $field_id,
+				'operator' => '==',
+				'value' => $value,
+			]
+		] );
+		$cloned_fields[] = $cloned_field;
+	}
+
+	return $cloned_fields;
+}
+
+use Carbon_Fields\Field;
+
+/**
+ * Generates a conditional section that allows switching between global and local settings.
+ *
+ * @param string $section_key          Unique key for the section (e.g. 'faq', 'how_it_works').
+ * @param array $fields                The actual local fields to show if global is disabled.
+ * @param string $toggle_label         Optional label for the toggle checkbox.
+ *
+ * @return array                       Array of Carbon Fields for the section.
+ */
+function make_section_with_toggle(
+	string $section_key,
+	array  $fields,
+	string $toggle_label = ''
+) : array
+{
+	$checkbox_field_name = "use_{$section_key}_global_settings";
+	$html_field_name = "{$section_key}_global_info_html";
+
+	if ( empty( $toggle_label ) ) {
+		$toggle_label = sprintf( __( 'Использовать настройки из глобальных секций для %s', THEME_TD ), strtoupper( $section_key ) );
+	}
+
+	$conditioned_fields = apply_conditional_logic_to_fields( $fields, $checkbox_field_name, false );
+
+	return array_merge( [
+		// Toggle: global vs local
+		Field::make( 'checkbox', $checkbox_field_name, $toggle_label )
+			->set_default_value( true ),
+
+		// Info message if using global
+		Field::make( 'html', $html_field_name )
+			->set_html( FIELDS_IN_GLOBAL_OPTIONS_HTML )
+			->set_conditional_logic( [
+				[
+					'field' => $checkbox_field_name,
+					'operator' => '=',
+					'value' => true,
+				]
+			] ),
+	], $conditioned_fields );
+}
+

@@ -137,3 +137,14 @@ define( 'ACTIVE_GAME_SECTION_FIELDS', [
 	Field::make( 'text', 'active_game_archive_link_url', __( 'URL ссылки на архив', THEME_TD ) )
 		->set_default_value( '/games' ),
 ] );
+
+
+define( 'FAQ_SECTION_TITLE', __( 'Вопрос - ответ', THEME_TD ) );
+define( 'FAQ_SECTION_FIELDS', [
+	Field::make( 'complex', 'faq_global_list', __( 'Вопросы и ответы (FAQ)', THEME_TD ) )
+		->set_layout( 'tabbed-horizontal' )
+		->add_fields( [
+			Field::make( 'text', 'question', __( 'Вопрос', THEME_TD ) ),
+			Field::make( 'rich_text', 'answer', __( 'Ответ', THEME_TD ) ),
+		] )
+] );
