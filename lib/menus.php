@@ -19,7 +19,7 @@ function add_cta_buttons_to_menu( $items, $args )
 			</li>';
 		} else {
 			$items .= '<li class="menu-cta menu-cta-logged-out">
-				<a href="https://t.me/' . TELEGRAM_BOT_TOKEN . '" class="btn btn-accent btn-mobile">' . __( 'Вход через Telegram', THEME_TD ) . '</a>
+				<a href="' . TELEGRAM_REGISTER_URL . '" class="btn btn-accent btn-mobile tg-auth-btn">' . __( 'Вход через Telegram', THEME_TD ) . '</a>
 			</li>';
 		}
 	}

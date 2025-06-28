@@ -16,7 +16,7 @@ $args = [
 	'post_type' => 'game',
 	'posts_per_page' => 1,
 	'meta_query' => [
-		['key' => 'game_status', 'value' => 'pending']
+		['key' => 'game_status', 'value' => 'active']
 	],
 	'orderby' => 'meta_value',
 	'meta_key' => 'game_start',
@@ -44,7 +44,7 @@ $joined = $game_id && in_array( $current_user->ID, carbon_get_post_meta( $game_i
             </p>
 
 			<?php if ( !$is_logged_in || !$tg_id ): ?>
-                <a href="https://t.me/<?= TELEGRAM_BOT_TOKEN ?>" class="tg-auth-btn btn btn-accent" target="_blank">
+                <a href="<?= TELEGRAM_REGISTER_URL ?>" class="tg-auth-btn btn btn-accent" target="_blank">
 					<?= esc_html( $btn_guest ) ?>
                 </a>
 			<?php elseif ( $next_game && !$joined ): ?>
@@ -56,7 +56,7 @@ $joined = $game_id && in_array( $current_user->ID, carbon_get_post_meta( $game_i
 			<?php elseif ( $next_game && $joined ): ?>
                 <div class="btn tg-register__button--disabled"><?= esc_html( $btn_joined ) ?></div>
 			<?php else: ?>
-                <a href="https://t.me/<?= TELEGRAM_BOT_TOKEN ?>" class="tg-auth-btn btn btn-accent" target="_blank">
+                <a href="<?= TELEGRAM_REGISTER_URL ?>" class="tg-auth-btn btn btn-accent" target="_blank">
 					<?= esc_html( $btn_notify ) ?>
                 </a>
 			<?php endif; ?>

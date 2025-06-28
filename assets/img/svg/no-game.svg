@@ -1,0 +1,8 @@
+<!-- вставить внутрь блока .__no-game -->
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" class="no-game-icon" aria-hidden="true">
+    <circle cx="60" cy="60" r="58" fill="#B388EB" stroke="#ffffff" stroke-width="4"/>
+    <path d="M60 30v20" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+    <path d="M60 60l15 15" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="60" cy="60" r="5" fill="#ffffff"/>
+    <text x="60" y="95" text-anchor="middle" fill="#ffffff" font-size="12" font-family="Mulish">Ждём новую игру</text>
+</svg>

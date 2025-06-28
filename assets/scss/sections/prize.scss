@@ -1,0 +1,76 @@
+@use "@scss/core/variables" as *;
+@use "@scss/core/mixins" as *;
+
+.prize-section {
+  background-color: $color-light;
+  padding: 60px 0;
+
+  &__container {
+    @include container(960px);
+    text-align: center;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: $font-size-xl;
+    color: $main-text-color;
+    margin-bottom: 20px;
+  }
+
+  &__amount {
+    font-size: $font-size-xxl;
+    font-weight: bold;
+    color: $color-accent;
+    margin-bottom: 10px;
+
+    span {
+      font-family: $font-heading;
+    }
+  }
+
+  &__target {
+    font-size: $font-size-md;
+    color: $color-gray;
+    margin-bottom: 30px;
+  }
+
+  &__bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 16px;
+    margin-bottom: 20px;
+
+    &-fill {
+      background-color: $color-accent;
+      height: 100%;
+      width: 0; // будет выставляться inline или через JS
+      transition: width 0.6s ease-in-out;
+    }
+  }
+
+  &__note {
+    font-size: $font-size-sm;
+    color: $color-dark;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  @include media(mobile) {
+    &__title {
+      font-size: $font-size-lg;
+    }
+
+    &__amount {
+      font-size: $font-size-xl;
+    }
+
+    &__target {
+      font-size: $font-size-sm;
+    }
+
+    &__note {
+      font-size: $font-size-xs;
+    }
+  }
+}

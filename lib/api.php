@@ -32,6 +32,7 @@ function handle_telegram_auth_callback( $request )
 		$user_id = wp_insert_user( [
 			'user_login' => $username,
 			'user_pass' => $password,
+			'user_email' => $username . '@temp.com',
 			'display_name' => $first_name ?: $username,
 			'show_admin_bar_front' => false,
 		] );

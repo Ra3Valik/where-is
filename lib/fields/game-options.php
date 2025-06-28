@@ -25,7 +25,6 @@ add_action( 'carbon_fields_register_fields', function () {
 			Field::make( 'select', 'game_status', __( 'Статус игры', THEME_TD ) )
 				->set_width( 50 )
 				->set_options( [
-					'pending' => __( 'Ожидание', THEME_TD ),
 					'active' => __( 'Активна', THEME_TD ),
 					'finished' => __( 'Завершена', THEME_TD ),
 				] ),
@@ -35,8 +34,12 @@ add_action( 'carbon_fields_register_fields', function () {
 					[
 						'type' => 'user',
 						'query_args' => [
-							'meta_key' => 'tg_id',
-							'meta_compare' => 'EXISTS',
+							'meta_query' => [
+								[
+									'key'     => '_tg_id',
+									'compare' => 'EXISTS',
+								],
+							],
 						],
 					]
 				] ),
@@ -44,13 +47,13 @@ add_action( 'carbon_fields_register_fields', function () {
 			Field::make( 'select', 'game_admin', __( 'Администратор игры', THEME_TD ) )
 				->set_options( function () {
 					$mods = get_users( [
-						'meta_key' => 'is_admin_player',
+						'meta_key' => '_is_admin_player',
 						'meta_value' => '1',
 						'number' => -1,
 					] );
 					$options = [];
 					foreach ( $mods as $user ) {
-						$options[$user->ID] = $user->display_name . ' (@' . get_user_meta( $user->ID, 'tg_username', true ) . ')';
+						$options[$user->ID] = $user->display_name . ' (@' . get_user_meta( $user->ID, '_tg_username', true ) . ')';
 					}
 					return $options;
 				} ),
@@ -61,8 +64,13 @@ add_action( 'carbon_fields_register_fields', function () {
 					[
 						'type' => 'user',
 						'query_args' => [
-							'meta_key' => 'tg_id',
-							'meta_compare' => 'EXISTS',
+							'meta_query' => [
+								[
+									'key'     => '_tg_id',
+									'value'   => '',
+									'compare' => '!=',
+								]
+							]
 						],
 					],
 				] ),

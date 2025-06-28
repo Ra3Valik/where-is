@@ -105,3 +105,35 @@ define( 'TELEGRAM_REGISTER_SECTIONS_FIELDS', [
 		->set_default_value( __( '🔔 Подписаться на уведомления', THEME_TD ) )
 		->set_help_text( __( 'Отображается, если игр нет, но пользователь авторизован', THEME_TD ) ),
 ] );
+
+define( 'ACTIVE_GAME_SECTION_TITLE', __( 'Активная игра', THEME_TD ) );
+define( 'ACTIVE_GAME_SECTION_FIELDS', [
+	Field::make( 'text', 'active_game_title', __( 'Заголовок блока', THEME_TD ) )
+		->set_default_value( '⌛ Активная игра' )
+		->set_help_text( __( 'Заголовок блока', THEME_TD ) ),
+
+	Field::make( 'text', 'active_game_preview_icon', __( 'Иконка в превью', THEME_TD ) )
+		->set_default_value( '📷' )
+		->set_help_text( __( 'Эмодзи или символ', THEME_TD ) ),
+
+	Field::make( 'textarea', 'active_game_preview_text', __( 'Текст превью', THEME_TD ) )
+		->set_default_value( "Фото-задание будет\nв Telegram" )
+		->set_rows( 2 )
+		->set_help_text( __( 'Текст рядом с иконкой превью', THEME_TD ) ),
+
+	Field::make( 'text', 'active_game_button_text', __( 'Текст кнопки участия', THEME_TD ) )
+		->set_default_value( 'Принять участие' ),
+
+	Field::make( 'text', 'active_game_no_game_title', __( 'Заголовок при отсутствии игры', THEME_TD ) )
+		->set_default_value( 'Игры пока нет' ),
+
+	Field::make( 'textarea', 'active_game_no_game_subtitle', __( 'Подзаголовок при отсутствии игры', THEME_TD ) )
+		->set_default_value( "Мы готовим новое задание.\nСледите за обновлениями в Telegram." )
+		->set_rows( 2 ),
+
+	Field::make( 'text', 'active_game_archive_link_text', __( 'Текст ссылки на архив', THEME_TD ) )
+		->set_default_value( '📂 Архив завершённых игр' ),
+
+	Field::make( 'text', 'active_game_archive_link_url', __( 'URL ссылки на архив', THEME_TD ) )
+		->set_default_value( '/games' ),
+] );

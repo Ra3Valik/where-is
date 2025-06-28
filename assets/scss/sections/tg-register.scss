@@ -2,7 +2,7 @@
 @use "@scss/core/mixins" as *;
 
 .tg-register {
-  background-color: $main-text-color;
+  @include gradient-bg;
   padding: 80px 0;
   color: $color-white;
   text-align: center;
