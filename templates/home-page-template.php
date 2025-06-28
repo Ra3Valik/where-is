@@ -10,13 +10,13 @@ get_header(); ?>
 
     <?php get_template_part( 'template-parts/sections/how-it-works' ); ?>
 
-<!--	--><?php //get_template_part( 'template-parts/sections/tg-register' ); ?>
-
-<!--	--><?php //get_template_part( 'template-parts/sections/prize' ); ?>
-
 	<?php get_template_part( 'template-parts/sections/active-game' ); ?>
 
 	<?php get_template_part( 'template-parts/sections/faq' ); ?>
+
+	<?php get_template_part( 'template-parts/sections/testimonials' ); ?>
+
+	<?php get_template_part( 'template-parts/sections/testimonial-form' ); ?>
 </main>
 
 <?php get_footer(); ?>

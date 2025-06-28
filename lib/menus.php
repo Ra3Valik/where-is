@@ -26,3 +26,24 @@ function add_cta_buttons_to_menu( $items, $args )
 	return $items;
 }
 
+
+add_action('admin_menu', 'add_pending_badge_to_testimonials');
+
+function add_pending_badge_to_testimonials() {
+	global $menu;
+
+	$count = wp_count_posts('testimonial')->pending ?? 0;
+	if ( ! $count ) return;
+
+	foreach ($menu as $index => $item) {
+		if (strpos($item[2], 'edit.php?post_type=testimonial') !== false) {
+			$menu[$index][0] .= sprintf(
+				' <span class="awaiting-mod">%d</span>',
+				$count
+			);
+			break;
+		}
+	}
+}
+
+

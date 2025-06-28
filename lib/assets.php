@@ -9,6 +9,13 @@ add_action( 'wp_enqueue_scripts', function () {
 		'bot_id' => TELEGRAM_BOT_ID,
 		'callback_url' => home_url( 'tg-auth' ),
 	] );
+
+	wp_localize_script( THEME_TD . '-main', 'themeData', [
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		'nonce' => wp_create_nonce( 'load_more_nonce' )
+	] );
+
+	add_swiper_scripts();
 } );
 
 add_action( 'admin_enqueue_scripts', function () {
@@ -40,4 +47,40 @@ function enqueue_branding_styles_frontend()
 	if ( is_user_logged_in() ) {
 		enqueue_branding_styles();
 	}
+}
+
+/**
+ * Swiper scripts
+ *
+ * @return void
+ */
+function add_swiper_scripts()
+{
+	wp_enqueue_style( 'swiper', 'https://unpkg.com/swiper@10/swiper-bundle.min.css' );
+	wp_enqueue_script( 'swiper', 'https://unpkg.com/swiper@10/swiper-bundle.min.js', [], null, true );
+
+	wp_add_inline_script( 'swiper', "
+    document.addEventListener('DOMContentLoaded', function () {
+      new Swiper('.testimonials-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false
+        },
+        breakpoints: {
+          768: { slidesPerView: 2 },
+          1168: { slidesPerView: 3 }
+        }
+      });
+    });
+  " );
 }

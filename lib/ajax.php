@@ -103,3 +103,54 @@ add_action( 'admin_footer', function () {
 } );
 
 
+/**
+ * Add Testimonial form
+ */
+add_action( 'wp_ajax_submit_testimonial_ajax', 'handle_testimonial_ajax' );
+add_action( 'wp_ajax_nopriv_submit_testimonial_ajax', 'handle_testimonial_ajax' );
+
+function handle_testimonial_ajax()
+{
+	if (
+		!isset( $_POST['testimonial_nonce'] ) ||
+		!wp_verify_nonce( $_POST['testimonial_nonce'], 'submit_testimonial' ) ||
+		!empty( $_POST['testimonial_email'] )
+	) {
+		wp_send_json_error( ['message' => 'Ошибка безопасности.'] );
+	}
+
+	$name = sanitize_text_field( $_POST['testimonial_name'] );
+	$text = sanitize_textarea_field( $_POST['testimonial_text'] );
+	if ( !$name || !$text ) {
+		wp_send_json_error( ['message' => 'Имя и отзыв обязательны.'] );
+	}
+
+	$post_id = wp_insert_post( [
+		'post_type' => 'testimonial',
+		'post_title' => $name,
+		'post_content' => $text,
+		'post_status' => 'pending',
+	] );
+
+	if ( is_wp_error( $post_id ) ) {
+		wp_send_json_error( ['message' => 'Ошибка при создании отзыва.'] );
+	}
+
+	if ( !empty( $_FILES['testimonial_avatar']['name'] ) ) {
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+		require_once ABSPATH . 'wp-admin/includes/image.php';
+		require_once ABSPATH . 'wp-admin/includes/media.php';
+
+		$attachment_id = media_handle_upload( 'testimonial_avatar', $post_id );
+
+		if ( is_wp_error( $attachment_id ) ) {
+			wp_send_json_error( ['message' => 'Ошибка загрузки файла: ' . $attachment_id->get_error_message()] );
+		}
+
+		$image_url = wp_get_attachment_url( $attachment_id );
+		carbon_set_post_meta( $post_id, 'avatar', esc_url( $image_url ) );
+	}
+
+	wp_send_json_success( ['message' => __( 'Спасибо! Ваш отзыв отправлен.', THEME_TD )] );
+}
+

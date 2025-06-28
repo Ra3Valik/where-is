@@ -2,7 +2,7 @@
 @use "@scss/core/mixins" as *;
 
 .faq-section {
-  background-color: $color-light;
+  background-color: $light-sections-bg;
   padding: 60px 0;
 
   &__container {

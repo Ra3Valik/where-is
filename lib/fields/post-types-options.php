@@ -36,7 +36,7 @@ add_action( 'carbon_fields_register_fields', function () {
 						'query_args' => [
 							'meta_query' => [
 								[
-									'key'     => '_tg_id',
+									'key' => '_tg_id',
 									'compare' => 'EXISTS',
 								],
 							],
@@ -66,8 +66,8 @@ add_action( 'carbon_fields_register_fields', function () {
 						'query_args' => [
 							'meta_query' => [
 								[
-									'key'     => '_tg_id',
-									'value'   => '',
+									'key' => '_tg_id',
+									'value' => '',
 									'compare' => '!=',
 								]
 							]
@@ -81,7 +81,7 @@ add_action( 'carbon_fields_register_fields', function () {
 					$winners = carbon_get_post_meta( $game_id, 'winners' ) ?: [];
 
 					if ( empty( $winners ) ) {
-						return '<em>'. __( 'Пока нет победителей.', THEME_TD ) . '</em>';
+						return '<em>' . __( 'Пока нет победителей.', THEME_TD ) . '</em>';
 					}
 
 					$out = '<ul>';
@@ -105,3 +105,10 @@ add_action( 'carbon_fields_register_fields', function () {
 				->set_html( '<button class="button button-primary" id="send-to-all">' . __( 'Отправить сообщение игрокам', THEME_TD ) . '</button>' ),
 		] );
 } );
+
+Container::make( 'post_meta', __( 'Дополнительно', THEME_TD ) )
+	->where( 'post_type', '=', 'testimonial' )
+	->add_fields( [
+		Field::make( 'image', 'avatar', __( 'Фото автора', THEME_TD ) )->set_value_type( 'url' ),
+	] );
+

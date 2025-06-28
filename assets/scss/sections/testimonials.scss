@@ -1,0 +1,100 @@
+@use "@scss/core/variables" as *;
+@use "@scss/core/mixins" as *;
+
+.section-testimonials {
+  @include gradient-bg;
+  color: $color-white;
+  padding: 80px 0;
+  text-align: center;
+
+  &__container {
+    @include container;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: $font-size-xl;
+    margin-bottom: 40px;
+  }
+
+  &__slider {
+    position: relative;
+  }
+
+  .swiper-wrapper {
+    display: flex;
+  }
+
+  .swiper-slide {
+    width: 320px;
+    flex-shrink: 0;
+    padding: 0 10px;
+  }
+
+  .testimonial-card {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-radius: $border-radius-min;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    .testimonial-avatar img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 16px;
+      border: 2px solid $color-map-mint;
+    }
+
+    .testimonial-name {
+      font-weight: bold;
+      font-size: $font-size-md;
+      color: $color-white;
+      margin-bottom: 8px;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      font-size: $font-size-sm;
+      color: $color-light;
+      line-height: 1.5;
+    }
+  }
+
+  .swiper-pagination {
+    margin-top: 30px;
+
+    .swiper-pagination-bullet {
+      background: $color-white;
+      opacity: 0.3;
+
+      &-active {
+        opacity: 1;
+      }
+    }
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: $color-white;
+    &::after {
+      font-size: 24px;
+    }
+
+    @include media(mobile) {
+      display: none;
+    }
+  }
+
+  @include media(mobile) {
+    .swiper-slide {
+      width: 85%;
+    }
+  }
+}

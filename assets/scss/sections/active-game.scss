@@ -1,10 +1,6 @@
 @use "@scss/core/variables" as *;
 @use "@scss/core/mixins" as *;
 
-@mixin gradient-bg($angle: 135deg, $from: $main-text-color, $to: $color-dark) {
-  background: linear-gradient($angle, $from, $to);
-}
-
 .active-game-section {
   @include gradient-bg;
   color: $color-white;

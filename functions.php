@@ -21,7 +21,7 @@ function load_theme_dependencies()
 	require_once( 'lib/fields/global-sections.php' );        			# Theme Options Fields
 	require_once( 'lib/fields/template-fields.php' );        			# Templates Fields
 	require_once( 'lib/fields/user-meta.php' );                			# User Fields
-	require_once( 'lib/fields/game-options.php' );            			# Game Options Fields
+	require_once( 'lib/fields/post-types-options.php' );            	# Post Type Options Fields
 
 	// After Carbon Fields Loaded
 	add_action( 'carbon_fields_fields_registered', function () {

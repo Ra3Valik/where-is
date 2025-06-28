@@ -145,6 +145,19 @@ define( 'FAQ_SECTION_FIELDS', [
 		->set_layout( 'tabbed-horizontal' )
 		->add_fields( [
 			Field::make( 'text', 'question', __( 'Вопрос', THEME_TD ) ),
+
 			Field::make( 'rich_text', 'answer', __( 'Ответ', THEME_TD ) ),
 		] )
+] );
+
+
+define( 'TESTIMONIALS_SECTION_TITLE', __( 'Отзывы', THEME_TD ) );
+define( 'TESTIMONIALS_SECTION_FIELDS', [
+	Field::make( 'text', 'testimonials_section_title', __( 'Заголовок', THEME_TD ) )
+		->set_default_value( 'Что говорят участники' ),
+
+	Field::make( 'html', 'testimonials_help_text' )
+		->set_html( '<div style="padding: 10px 15px; background: #fef9e7; border-left: 4px solid #f1c40f; font-size: 14px;">
+	<strong>ℹ️ Обратите внимание:</strong> отзывы беруться <a href="/wp-admin/edit.php?post_type=testimonial" target="_blank"><strong>отсюда</strong></a>, а не из полей страницы.
+</div>' )
 ] );
