@@ -12,11 +12,13 @@ get_header(); ?>
 
 	<?php get_template_part( 'template-parts/sections/active-game' ); ?>
 
-	<?php get_template_part( 'template-parts/sections/faq' ); ?>
+	<?php get_template_part( 'template-parts/sections/testimonial-form' ); ?>
 
 	<?php get_template_part( 'template-parts/sections/testimonials' ); ?>
 
-	<?php get_template_part( 'template-parts/sections/testimonial-form' ); ?>
+	<?php get_template_part( 'template-parts/sections/faq' ); ?>
+
+	<?php get_template_part( 'template-parts/sections/partners-list' ); ?>
 </main>
 
 <?php get_footer(); ?>

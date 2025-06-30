@@ -25,6 +25,14 @@ function crb_attach_home_page_fields()
 		->add_tab( TESTIMONIALS_SECTION_TITLE, make_section_with_toggle(
 			'testimonials',
 			TESTIMONIALS_SECTION_FIELDS
+		) )
+		->add_tab( TESTIMONIALS_FORM_SECTION_TITLE, make_section_with_toggle(
+			'testimonial_form',
+			TESTIMONIALS_FORM_SECTION_FIELDS
+		) )
+		->add_tab( PARTNERS_LIST_TITLE, make_section_with_toggle(
+			'partners',
+			PARTNERS_LIST_FIELDS
 		) );
 //		->add_tab( TELEGRAM_REGISTER_SECTIONS_TITLE, [
 //			Field::make( 'html', 'tr_in_gs' )

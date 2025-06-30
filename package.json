@@ -12,6 +12,7 @@
   "dependencies": {
     "saas": "^1.0.0",
     "sass-embedded": "^1.89.2",
+    "swiper": "^11.2.10",
     "vite": "^6.3.5"
   }
 }

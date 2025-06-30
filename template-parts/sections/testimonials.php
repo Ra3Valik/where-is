@@ -8,8 +8,8 @@ $query = new WP_Query( [
 ] );
 
 $use_global = carbon_get_the_post_meta( 'use_testimonials_global_settings' );
-$func = $use_global ? 'carbon_get_theme_option' : 'carbon_get_the_post_meta';
-$section_title = $func( 'testimonials_section_title' );
+$get_field = $use_global ? 'carbon_get_theme_option' : 'carbon_get_the_post_meta';
+$section_title = $get_field( 'testimonials_section_title' );
 
 if ( $query->have_posts() ) :
 	?>

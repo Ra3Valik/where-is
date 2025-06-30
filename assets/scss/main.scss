@@ -1,4 +1,5 @@
 @use 'components/buttons';
+@use 'components/modals';
 @use 'core/typography';
 @use 'core/reset';
 
@@ -12,3 +13,4 @@
 @use "sections/faq";
 @use "sections/testimonials";
 @use "sections/form-testimonials";
+@use "sections/partners-list";

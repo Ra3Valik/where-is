@@ -98,3 +98,11 @@
     }
   }
 }
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  content: '‹'; // для prev
+}
+.swiper-button-next::after {
+  content: '›'; // для next
+}

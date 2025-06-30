@@ -35,6 +35,6 @@ export function initGameTimer() {
         return [hours, minutes, seconds].map(unit => String(unit).padStart(2, '0')).join(':');
     }
 
-    updateTimer();
     const timerInterval = setInterval(updateTimer, 1000);
+    updateTimer();
 }

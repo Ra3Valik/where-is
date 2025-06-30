@@ -22,6 +22,7 @@ function load_theme_dependencies()
 	require_once( 'lib/fields/template-fields.php' );        			# Templates Fields
 	require_once( 'lib/fields/user-meta.php' );                			# User Fields
 	require_once( 'lib/fields/post-types-options.php' );            	# Post Type Options Fields
+	require_once( 'lib/classes/ModalRenderer.php' );            		# Class for Modals
 
 	// After Carbon Fields Loaded
 	add_action( 'carbon_fields_fields_registered', function () {

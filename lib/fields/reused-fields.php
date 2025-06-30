@@ -109,30 +109,30 @@ define( 'TELEGRAM_REGISTER_SECTIONS_FIELDS', [
 define( 'ACTIVE_GAME_SECTION_TITLE', __( 'Активная игра', THEME_TD ) );
 define( 'ACTIVE_GAME_SECTION_FIELDS', [
 	Field::make( 'text', 'active_game_title', __( 'Заголовок блока', THEME_TD ) )
-		->set_default_value( '⌛ Активная игра' )
+		->set_default_value( __( '⌛ Активная игра', THEME_TD ) )
 		->set_help_text( __( 'Заголовок блока', THEME_TD ) ),
 
 	Field::make( 'text', 'active_game_preview_icon', __( 'Иконка в превью', THEME_TD ) )
-		->set_default_value( '📷' )
+		->set_default_value( __( '📷', THEME_TD ) )
 		->set_help_text( __( 'Эмодзи или символ', THEME_TD ) ),
 
 	Field::make( 'textarea', 'active_game_preview_text', __( 'Текст превью', THEME_TD ) )
-		->set_default_value( "Фото-задание будет\nв Telegram" )
+		->set_default_value( __( "Фото-задание будет\nв Telegram", THEME_TD ) )
 		->set_rows( 2 )
 		->set_help_text( __( 'Текст рядом с иконкой превью', THEME_TD ) ),
 
 	Field::make( 'text', 'active_game_button_text', __( 'Текст кнопки участия', THEME_TD ) )
-		->set_default_value( 'Принять участие' ),
+		->set_default_value( __( 'Принять участие', THEME_TD ) ),
 
 	Field::make( 'text', 'active_game_no_game_title', __( 'Заголовок при отсутствии игры', THEME_TD ) )
-		->set_default_value( 'Игры пока нет' ),
+		->set_default_value( __( 'Игры пока нет', THEME_TD ) ),
 
 	Field::make( 'textarea', 'active_game_no_game_subtitle', __( 'Подзаголовок при отсутствии игры', THEME_TD ) )
-		->set_default_value( "Мы готовим новое задание.\nСледите за обновлениями в Telegram." )
+		->set_default_value( __( "Мы готовим новое задание.\nСледите за обновлениями в Telegram.", THEME_TD ) )
 		->set_rows( 2 ),
 
 	Field::make( 'text', 'active_game_archive_link_text', __( 'Текст ссылки на архив', THEME_TD ) )
-		->set_default_value( '📂 Архив завершённых игр' ),
+		->set_default_value( __( '📂 Архив завершённых игр', THEME_TD ) ),
 
 	Field::make( 'text', 'active_game_archive_link_url', __( 'URL ссылки на архив', THEME_TD ) )
 		->set_default_value( '/games' ),
@@ -141,6 +141,9 @@ define( 'ACTIVE_GAME_SECTION_FIELDS', [
 
 define( 'FAQ_SECTION_TITLE', __( 'Вопрос - ответ', THEME_TD ) );
 define( 'FAQ_SECTION_FIELDS', [
+	Field::make( 'text', 'faq_title', __( 'Заголовок', THEME_TD ) )
+		->set_default_value( __( 'Часто задаваемые вопросы', THEME_TD ) ),
+
 	Field::make( 'complex', 'faq_global_list', __( 'Вопросы и ответы (FAQ)', THEME_TD ) )
 		->set_layout( 'tabbed-horizontal' )
 		->add_fields( [
@@ -154,10 +157,55 @@ define( 'FAQ_SECTION_FIELDS', [
 define( 'TESTIMONIALS_SECTION_TITLE', __( 'Отзывы', THEME_TD ) );
 define( 'TESTIMONIALS_SECTION_FIELDS', [
 	Field::make( 'text', 'testimonials_section_title', __( 'Заголовок', THEME_TD ) )
-		->set_default_value( 'Что говорят участники' ),
+		->set_default_value( __( 'Что говорят участники', THEME_TD ) ),
 
 	Field::make( 'html', 'testimonials_help_text' )
 		->set_html( '<div style="padding: 10px 15px; background: #fef9e7; border-left: 4px solid #f1c40f; font-size: 14px;">
 	<strong>ℹ️ Обратите внимание:</strong> отзывы беруться <a href="/wp-admin/edit.php?post_type=testimonial" target="_blank"><strong>отсюда</strong></a>, а не из полей страницы.
 </div>' )
+] );
+
+define( 'TESTIMONIALS_FORM_SECTION_TITLE', __( 'Оставить отзыв', THEME_TD ) );
+define( 'TESTIMONIALS_FORM_SECTION_FIELDS', [
+        Field::make( 'text', 'testimonial_form_title', __( 'Заголовок Формы', THEME_TD ) )
+            ->set_default_value( __( 'Оставьте отзыв', THEME_TD ) ),
+
+        Field::make( 'text', 'testimonial_form_thank_you_text', __( 'Текст при успешной отправке формы', THEME_TD ) )
+            ->set_default_value( __( 'Спасибо! Ваш отзыв отправлен и ожидает проверки.', THEME_TD ) ),
+] );
+
+define( 'PARTNERS_LIST_TITLE', __( 'Партнёры и спонсоры', THEME_TD ) );
+define( 'PARTNERS_LIST_FIELDS', [
+    Field::make( 'text', 'partners_title', __( 'Заголовок', THEME_TD ) )
+        ->set_default_value( __( 'Партнёры и спонсоры', THEME_TD ) ),
+
+	Field::make( 'complex', 'partners_list', __( 'Партнёры и спонсоры', THEME_TD ) )
+		->add_fields( [
+			Field::make( 'image', 'logo', __( 'Логотип партнёра', THEME_TD ) )
+				->set_value_type( 'url' )
+				->set_help_text( __( 'Загрузите логотип в хорошем качестве (SVG или PNG)', THEME_TD ) ),
+
+			Field::make( 'text', 'name', __( 'Название партнёра', THEME_TD ) )
+				->set_required(),
+
+			Field::make( 'text', 'desc', __( 'Описание партнёра', THEME_TD ) )
+				->set_help_text( __( 'Краткое описание или вклад партнёра', THEME_TD ) )
+				->set_width( 50 ),
+
+			Field::make( 'text', 'url', __( 'Ссылка на сайт партнёра', THEME_TD ) )
+				->set_attribute( 'type', 'url' )
+				->set_width( 50 ),
+		] )
+		->set_layout( 'tabbed-horizontal' )
+		->set_header_template( function () {
+			ob_start();
+			?>
+
+			<% if (name) { %>
+			Партнёр: <%- name %>
+			<% } %>
+
+			<?php
+			return ob_get_clean();
+		} ),
 ] );

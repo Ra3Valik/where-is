@@ -1,7 +1,7 @@
 <?php
 
 $use_global = carbon_get_the_post_meta( 'use_active_game_global_settings' );
-$func = $use_global ? 'carbon_get_theme_option' : 'carbon_get_the_post_meta';
+$get_field = $use_global ? 'carbon_get_theme_option' : 'carbon_get_the_post_meta';
 
 $active_game = get_posts( [
 	'post_type' => 'game',
@@ -12,15 +12,15 @@ $active_game = get_posts( [
 
 $is_logged_in = is_user_logged_in();
 
-$title = $func( 'active_game_title' );
-$preview_icon = $func( 'active_game_preview_icon' );
-$preview_text = nl2br( $func( 'active_game_preview_text' ) );
-$button_text = $func( 'active_game_button_text' );
+$title = $get_field( 'active_game_title' );
+$preview_icon = $get_field( 'active_game_preview_icon' );
+$preview_text = nl2br( $get_field( 'active_game_preview_text' ) );
+$button_text = $get_field( 'active_game_button_text' );
 
-$no_game_title = $func( 'active_game_no_game_title' );
-$no_game_subtitle = nl2br( $func( 'active_game_no_game_subtitle' ) );
-$archive_link_text = $func( 'active_game_archive_link_text' );
-$archive_link_url = $func( 'active_game_archive_link_url' );
+$no_game_title = $get_field( 'active_game_no_game_title' );
+$no_game_subtitle = nl2br( $get_field( 'active_game_no_game_subtitle' ) );
+$archive_link_text = $get_field( 'active_game_archive_link_text' );
+$archive_link_url = $get_field( 'active_game_archive_link_url' );
 ?>
 
 <section id="active-game" class="active-game-section">

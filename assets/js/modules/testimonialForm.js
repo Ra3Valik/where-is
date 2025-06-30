@@ -13,7 +13,7 @@ export function initTestimonialForm() {
     const submitButton = form.querySelector('button[type="submit"]');
     const successBlock = document.querySelector('.form-success');
 
-    // === Превью ===
+    // === Preview ===
     if (nameInput && previewName) {
         nameInput.addEventListener('input', () => {
             previewName.textContent = nameInput.value.trim() || 'Имя пользователя';
@@ -42,17 +42,16 @@ export function initTestimonialForm() {
         });
     }
 
-    // === AJAX-отправка ===
+    // === AJAX ===
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Блокируем кнопку
+        // Disable Btn
         submitButton.disabled = true;
         submitButton.classList.add('is-loading');
         const originalText = submitButton.textContent;
         submitButton.textContent = 'Отправка...';
 
-        // Создаём данные
         const formData = new FormData(form);
 
         try {
@@ -69,12 +68,11 @@ export function initTestimonialForm() {
 
             if (result.success) {
                 form.reset();
-                // Обновим предпросмотр
+                // Update Preview
                 if (previewName) previewName.textContent = 'Имя пользователя';
                 if (previewText) previewText.textContent = 'Здесь будет ваш отзыв...';
                 if (previewAvatar) previewAvatar.src = avatarInput?.dataset.placeholder || '';
 
-                console.log(successBlock);
                 if (successBlock) {
                     successBlock.classList.add('visible');
                     setTimeout(() => {

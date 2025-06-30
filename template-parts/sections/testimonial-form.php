@@ -1,9 +1,16 @@
+<?php
+$use_global = carbon_get_the_post_meta( 'use_testimonial_form_global_settings' );
+$get_field = $use_global ? 'carbon_get_theme_option' : 'carbon_get_the_post_meta';
+$form_title = $get_field( 'testimonial_form_title' );
+$thank_you_text = $get_field( 'testimonial_form_thank_you_text' );
+?>
+
 <section class='testimonial-form-section'>
     <div class='testimonial-form-wrapper'>
         <div class='testimonial-form-container'>
-            <h2 class='section-title'><?php _e( 'Оставьте отзыв', THEME_TD ); ?></h2>
+            <h2 class='section-title'><?= esc_html( $form_title ) ?></h2>
 
-            <div class="form-success"><?php _e( 'Спасибо! Ваш отзыв отправлен и ожидает проверки.', THEME_TD ); ?></div>
+            <div class="form-success"><?= esc_html( $thank_you_text ) ?></div>
 
             <form method="post" enctype="multipart/form-data" class="testimonial-form" id="testimonialForm">
                 <input type="text" name="testimonial_name" id="testimonialName"

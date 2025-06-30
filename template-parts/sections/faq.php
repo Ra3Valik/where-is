@@ -1,13 +1,14 @@
 <?php
 $use_global = carbon_get_the_post_meta( 'use_faq_global_settings' );
-$func = $use_global ? 'carbon_get_theme_option' : 'carbon_get_the_post_meta';
-$faq_items = $func( 'faq_global_list' );
+$get_field = $use_global ? 'carbon_get_theme_option' : 'carbon_get_the_post_meta';
+$faq_title = $get_field( 'faq_title' );
+$faq_items = $get_field( 'faq_global_list' );
 
 if ( !empty( $faq_items ) ):
 	?>
     <section class="faq-section">
         <div class="faq-section__container">
-            <h2 class="faq-section__title"><?= __( 'Frequently Asked Questions', THEME_TD ); ?></h2>
+            <h2 class="faq-section__title"><?= esc_html( $faq_title ); ?></h2>
 
             <div class="faq-accordion">
 				<?php foreach ( $faq_items as $index => $item ): ?>
